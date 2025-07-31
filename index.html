@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de peluches suaves y adorables." />
+    <meta name="keywords" content="peluches, tienda, juguetes, e-commerce, regalos" />
+    <title>Mundo arcoiris</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fontawesome.com/icons/facebook?f=brands&s=solid">
+    <script src="https://fontawesome.com/icons/facebook?f=brands&s=solid" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: ¨Quicksand¨, sans-serif;
+            background: #fff5f8;
+        }
+
+        header,
+        footer {
+            background-color: #ffbfd3;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #carrito {
+            padding: 1rem;
+            background-color: #fff0f5;
+            border: 2px solid #f9c1d9;
+            border-radius: 8px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logo.png" alt="Logo del proyecto">
+        <h1>MUNDO ARCOIRIS</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#opiniones">Opiniones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#carrito">🛒 Carrito <span id="contador">0</span></a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+        <section id="inicio" class="text-center mb-5">
+            <h2>Bienvenidos a la tienda más adorable</h2>
+            <p>Descubrí un lugar donde los abrazos tienen todos los colores.</p>
+        </section>
+
+        <section>
+            <section id="nosotros" class="mb-5 text-center">
+                <h2>Sobre nosotros</h2>
+                <p>Somos una tienda de peluches, creadores de momentos felices para todas las edades.</p>
+                <video src="video.mp4" controls width="50%"></video>
+            </section>
+
+            <section class="productos">
+                <section id="productos" class="text-center mb-5">
+                    <h2>Productos destacados</h2>
+                    <div class="d-flex-wrap justify-content-center g-4">
+                        <div class="producto text-center">
+
+                            <img src="Unicornio.jpg" alt="Unicornio" width="200">
+                            <p>Unicornio</p>
+                            <p>$10.000</p>
+                            <button class="btn btn-primary" onclick="agregarAlCarrito(1,'Unicornio', 10000)">Agregar al
+                                carrito</button>
+                        </div>
+
+                        <div class="producto text-center">
+                            <div class="producto">
+                                <img src="Labubu.jpg" alt="Labubu" width="200">
+                                <p>Labubu</p>
+                                <p>$12.000</p>
+                                <button class="btn btn-primary" onclick="agregarAlCarrito(2,'Unicornio', 10000)">Agregar
+                                    al
+                                    carrito</button>
+                            </div>
+                            <div class="producto text-center">
+                                <img src="Capibara.jpg" alt="Capibarra" width="200">
+                                <p>Capibara</p>
+                                <p>$9.000</p>
+                                <button class="btn btn-primary" onclick="agregarAlCarrito(3,'Unicornio', 10000)">Agregar
+                                    al
+                                    carrito</button>
+                            </div>
+                        </div>
+                </section>
+
+                <section id="carrito" class="mt-5">
+                    <h3>🛒 Carrito de Compras</h3>
+                    <div id="lista-carrito" class="mb-3"></div>
+                    <p>Total: $<span id="total">0</span></p>
+                    <button id="vaciar-carrito" class="btn btn-danger mt-2">Vaciar Carrito</button>
+                </section>
+
+                <section id="opiniones" class="mt-5">
+                    <h4>Opiniones</h4>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card p-3"> "¡A mi hija le encantó su osito rosa! Muy buena calidad."</div>
+                        </div>
+                        <div class="col">
+                            <div class="card p-3">"Envio rápido y el empaque era hermoso. Recomendado 100%."</div>
+                        </div>
+                        <div class="col">
+                            <div class="card p-3"> "Compre 3 peluches para regalar, todos perfectos."</div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="contacto" class="mt-5">
+                    <h3>Contacto</h3>
+                    <form action="https://formspree.io/f/xgvkbnad" method="POST">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+
+                    <head>
+                        <p>
+                        <div class="social-icons mt-3">
+                            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+                        </div>
+                        </p>
+                    </head>
+                    </form>
+                </section>
+
+    </main>
+
+    <footer>
+        <p>&copy;2025 - Todos los derechos reservados</p>
+    </footer>
+
+
+</body>
+
+<script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function actualizarCarritoHTML() {
+        const lista = document.getElementById("lista-carrito");
+        const total = document.getElementById("total");
+        lista.innerHTML = "";
+        let suma = 0;
+
+        carrito.forEach((item, i) => {
+            suma += item.precio;
+            const div = document.createElement("div");
+            div.innerHTML = `${item.nombre} - $${item.precio} <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${i})">Eliminar</button>`;
+            lista.appendChild(div);
+        });
+
+        total.textContent = suma;
+    }
+
+    function agregarAlCarrito(id, nombre, precio) {
+        carrito.push({ id, nombre, precio });
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarritoHTML();
+    }
+
+    function eliminarProducto(index) {
+        carrito.splice(index, 1);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarritoHTML();
+    }
+
+    function vaciarCarrito() {
+        carrito = [];
+        localStorage.removeItem("carrito");
+        actualizarCarritoHTML();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        actualizarCarritoHTML();
+        const btnVaciar = document.getElementById("vaciar-carrito");
+        if (btnVaciar) {
+            btnVaciar.addEventListener("click", vaciarCarrito);
+        }
+    });
+
+</script>
+
+</html>
